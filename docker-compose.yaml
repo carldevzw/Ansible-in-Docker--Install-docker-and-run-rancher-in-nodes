@@ -1,0 +1,12 @@
+services:
+  ansible:
+    build:
+      context: . # Path to the Dockerfile
+    container_name: ansible_container
+    working_dir: /ansible
+    volumes:
+      - ./ansible:/ansible  # Mount local playbooks and inventory files
+      - ~/.ssh:/root/.ssh   # Mount SSH keys for remote connections
+    stdin_open: true  # Keep STDIN open for interactive sessions
+    tty: true         # Allocate a pseudo-TTY
+
